@@ -1,0 +1,92 @@
+<html>
+<head>
+  <script>
+  function load(){
+   	var elemento = document.documentElement;
+  	//alert(elemento.nodeName); //HTML
+
+    var numeroDescendientesHTML = elemento.childNodes.length;
+    //alert(numeroDescendientesHTML);//3
+
+  	var objeto_head = elemento.firstChild;
+  	var objeto_body = elemento.lastChild;
+  	//alert("HEAD: "+objeto_head+" BODY: "+objeto_body);
+
+  	var objeto_head = elemento.childNodes[0];
+  	var objeto_body = elemento.childNodes[2];
+  	//alert("HEAD2: "+objeto_head+" BODY2: "+objeto_body);
+
+  	var numeroDescendientesBODY = objeto_body.childNodes.length;
+  	//alert("Descendientes de BODY: "+numeroDescendientesBODY); //7
+
+    var numeroDescendientesHEAD = objeto_head.childNodes.length;
+    //alert("Descendientes de HEAD: "+numeroDescendientesHEAD); //5
+
+  	/*for (var i = 0; i <= numeroDescendientesHEAD; i++) {
+  		alert("Elementos del BODY: "+objeto_body.childNodes[i].nodeName);
+  	}*/
+
+    var bodyNodos = objeto_body.hasChildNodes();
+
+    if(bodyNodos==true){
+      alert("El nodo body tiene hijos");
+      distanciaBody = objeto_body.childNodes.length;
+      alert("Tiene un total de "+(distanciaBody-1)+" nodos");
+      for (var i = 1; i <= distanciaBody-1; i+=2) {
+          alert("Tiene dentro un nodo de tipo:"+objeto_body.childNodes[i].nodeName);
+          var objetoTexto = objeto_body.childNodes[i];
+          //var longObj = objetoTexto.childNodes.length;
+          for (var j = 0; j <= objetoTexto.childNodes.length-1; j++) {
+            var objDnrTx = objetoTexto.childNodes[j];
+            //alert("Y dentro de el tiene: "+objetoTexto.childNodes[j].nodeValue);
+            //alert(objDnrTx.childNodes.length);
+            if(objDnrTx.childNodes.length>=1){
+              var objDnrTxDos = objetoTexto.childNodes[j];
+              for (var a = 0; a <= objDnrTxDos.childNodes.length; a++) {
+                var objDnrTxDos = objDnrTxDos.childNodes[a];
+                alert(objDnrTxDos.nodeValue);
+              }
+            }else{
+              alert(objDnrTx.nodeValue);
+            }
+          }
+        //i++;
+      }
+    }
+
+
+    /*
+    //Párrafo sin STRONG
+    var nd = objeto_body.childNodes[3];
+    alert(nd);
+    alert(nd.hasChildNodes());
+    var numeroDescendientesP = nd.childNodes.length;
+    alert(nd.childNodes.length);
+
+    //Párrafo con STRONG
+    var p = objeto_body.childNodes[5];
+    alert(p);
+    alert(p.hasChildNodes());
+    var numeroDescendientesP = p.childNodes.length;
+    alert(p.childNodes.length);
+
+    for (var i = 0; i <= numeroDescendientesP; i++) {
+      alert("Elementos del P: "+p.childNodes[i].nodeName);
+    }
+  	/*var objeto_head = elemento.firstChild;
+  	alert(objeto_head.nodeName); //HEAD
+
+  	var objeto_body = elemento.childNodes[1].nodeName;
+  	alert(objeto_body);*/
+  }
+  window.onload = load;
+  </script>
+  <title>Aprendiendo DOM</title>
+</head>
+<body>
+  <p>Aprendiendo DOM</p>
+  <p>DOM es sencillo de aprender</p>
+  <p>Ademas, <strong>DOM</strong> es muy potente</p>
+</body>
+</html>
+

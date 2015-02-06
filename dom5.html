@@ -1,0 +1,49 @@
+<html>
+<head>
+  <script>
+  function load(){
+    var ps = document.querySelectorAll("p");
+    var estas = false;
+    for (var i = 0; i <= ps.length-1; i++) {
+      estas=false;
+      alert(ps[i].nodeName);
+      var atributos = ps[i].attributes;
+      var quePasaAqui = confirm("desea efectuar cambios");
+      for (var j = 0; j < atributos.length; j++) {
+        if(atributos[j].name=="class"){
+          estas = true;
+        }
+      }
+        if(quePasaAqui == true){
+          var intro = prompt('Introduce el nombre de la clase');
+          if(estas=true){
+           ps[i].setAttribute("class",intro);
+          }else{
+            var typ = document.createAttribute("class");
+            typ.value = intro;
+            atributos.setNamedItem(typ);
+          }
+        }
+      alert(atributos.length);
+      for (var j = 0; j < atributos.length; j++) {
+        alert(atributos[j].name+"="+atributos[j].value);
+      }
+    }
+  }
+  function cambiarAttr (){
+
+  }
+  
+  </script>
+  <title>Aprendiendo DOM</title>
+</head>
+<body>
+  <p id="c++" class="primero">Aprendiendo DOM</p>
+  <p id="c+-">DOM es sencillo de aprender</p>
+  <p id="c--">Ademas, <strong>DOM</strong> es muy potente</p>
+</body>
+<script>
+  window.onload = load;
+</script>
+</html>
+

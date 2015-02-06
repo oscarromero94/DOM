@@ -1,0 +1,84 @@
+<html>
+<head>
+  <style type="text/css">
+    *{
+      text-align: center;
+      background-color: #73C2F2;
+    }
+    section{
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border: 5px solid red;
+      margin-top: 5px;
+    }
+    h2{
+      background-color: #0097A7;
+    }
+    input{
+      background-color: yellow;
+    }
+  </style>
+  <script>
+  function alerta () {
+    document.querySelector("*").style.background="#88E84F";
+  	var botones = document.querySelectorAll("input[name=idiomas]");
+    var vamosAVer = 0;
+  	for (var i = 0; i <= botones.length-1; i++) {
+  		var comprobante = botones[i].checked;
+  		if(comprobante==true){
+  			document.querySelector("#asignatura").innerHTML = botones[i].value;
+        vamosAVer=1;
+  		}
+  	}
+    if(vamosAVer==0){
+      document.querySelector("#asignatura").innerHTML = "No se a seleccionado ninguna asignatura";
+    }
+
+  	var botones2 = document.querySelectorAll("input[name=actividades]");
+    var vamosAVer = 0;
+
+
+  	for (var i = 0; i <= botones2.length-1; i++) {
+  		var comprobante = botones2[i].checked;
+  		if(comprobante==true){
+  			if(recojo==undefined){
+          /*recojo[0]=botones2[i].value;
+          alert(recojo[0]);*/
+  				recojo = botones2[i].value;
+          vamosAVer=1;
+  			}else{
+  				recojo = recojo+', '+botones2[i].value;
+  			}
+  			
+  		}
+  	}
+    if(vamosAVer==0){
+      var recojo = "No as seleccionado ninguna actividad";
+    }
+  	document.querySelector("#actividad").innerHTML = recojo ;
+    
+  }
+  </script>
+
+</head>
+<body>	
+	<section>	
+		<h2>Idiomas</h2>
+		<input type="radio" name="idiomas" value="Griego" >Griego<br>
+		<input type="radio" name="idiomas" value="Latin" >Latin<br>
+		<input type="radio" name="idiomas" value="Arameo" >Arameo<br>
+		<h3>Asignatura seleccionada: </h3><h4 id="asignatura"></h4><hr/>
+	</section>
+	<section>
+		<h2>Actividades</h2>
+		<input type="checkbox" name="actividades" value="Dep_cerradas" >Dep_cerradas<br>
+		<input type="checkbox" name="actividades" value="Culturales" >Culturales<br>
+		<input type="checkbox" name="actividades" value="Mixtas" >Mixtas<br>
+		<input type="checkbox" name="actividades" value="Dep_naturaleza" >Dep_naturaleza<br>
+		<h3>Actividad seleccionada: </h3><h4 id="actividad"></h4><hr/>
+	</section><br><br><br>
+		<input type="submit" value="Enviar" onclick="alerta()">
+
+</body>
+</html>

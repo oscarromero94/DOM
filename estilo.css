@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0; 
+}
+@font-face{
+	font-family: "letra1";
+	src: url("DK Lemon Yellow Sun.otf");
+}
+*{
+	text-align: center;
+	font-family: "letra1", serif;
+}
+header{
+	background-image: url(NH1nLsV.png);
+}
+body{
+	background-image: url(i3OA2PJ.jpg);
+}
+footer{
+	color:#10ADED;
+}
+button{
+	background-color: #73EB70;
+	font-size: 1.2em;
+}
+button:hover{
+	box-shadow: -2px 0px 16px 14px rgba(16,173,237,0.4);
+	background-color: #97FFA4;
+}
+section article h1{
+	font-size: 1.5em;
+	color:#7BC1AC;
+}
+header h1{
+	color:#2B38E6;
+	text-shadow: 2px 2px #fff;
+}
+header{
+	width: 100%;
+	height: 20%;
+	border-bottom: 4px solid #10ADED;
+	box-shadow: 0px 13px 22px -2px rgba(16,173,237,1);
+}
+body section{
+	padding: 2em;
+}
+section article{
+	margin-left: 42%;
+	width: 200px;
+	border: 2px solid #10ADED;
+	background-color: rgba(16,173,237,0.4);
+}
+p{
+	color:#9E94FC;
+	font-size: 1.3em;
+}

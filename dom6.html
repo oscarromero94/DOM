@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>DOM6-Creación de nodos</title>
+	<script>
+		function anade () {
+			var intro = prompt('Introduce el nombre de el ID donde introducir'); //Introducción del usuario
+			var elem = document.getElementById(intro);//Intentamos recojer el nodo con ese ID
+			if(elem==null){
+				alert("El ID introducido no existe"); //Mensaje de que si el valor es nulo esque el elemento con ese ID no existe en nuestro arbol de nodos.
+			}else{
+				var etiqueta = document.createElement("p"); //Creamos un nuevo nodo de tipo elemento p.
+				var texto = document.createTextNode("Nuevo párrafo"); //Creamos un nodo de texto.
+				etiqueta.appendChild(texto); //Se asocia el elemento creado y su contenido de texto. 
+				elem.appendChild(etiqueta); //Se añade el nodo creado al árbol de nodos DOM.
+			}
+		}
+		function reemplazar () {
+			var intro = prompt('Introduce el nombre de el ID donde desea reemplazar'); 
+			var elem = document.getElementById(intro);
+			var ps = elem.querySelectorAll("p");
+			if(ps.length==0){
+				alert("Este nodo no tiene nada");
+			}else{
+				var intro = prompt("Este nodo tiene "+ps.length+" nodos cual desea cambiar");
+				var cambio = ps[intro-1];
+				var nuevoP = document.createElement("p");
+				var texto = document.createTextNode("Párrafo reemplazado");
+				nuevoP.appendChild(texto);
+				//cambio.parentNode.replaceChild(nuevoP,cambio);
+				elem.replaceChild(nuevoP,cambio);
+			}
+		}
+	</script>
+	<link rel="stylesheet" href="estilo.css"/>
+</head>
+<body>
+	<header id="header" class="">
+		<h1>Creando nodos</h1><br>
+		<button onclick="anade()">Generar nodos</button>
+		<button onclick="reemplazar()">Reemplazar nodos</button>
+		<button onclick="insertar()">Insertar nodos</button>
+		<button onclick="eliminar()">Eliminar nodos</button>
+	</header>
+	<section>
+		<article id="uno">
+			<h1>Uno</h1>
+			<p>Nuevo párrafo</p>
+			<p>Nuevo párrafo</p>
+		</article><br><br><br>
+		<article id="dos">
+			<h1>Dos</h1>
+		</article><br><br><br>
+		<article id="tres">
+			<h1>Tres</h1>
+		</article><br><br><br>
+	</section>
+	<footer>
+	<h2>By Óscar</h2>
+	</footer>
+
+</body>
+</html>
+
