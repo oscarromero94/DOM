@@ -13,9 +13,11 @@
 }
 header{
 	background-image: url(NH1nLsV.png);
+	background-position: fixed;
 }
 body{
 	background-image: url(i3OA2PJ.jpg);
+	background-position: fixed;
 }
 footer{
 	color:#10ADED;

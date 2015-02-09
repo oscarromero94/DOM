@@ -1,7 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>DOM6-Creación de nodos</title>
 	<script>
 		function anade () {
@@ -32,10 +32,31 @@
 				elem.replaceChild(nuevoP,cambio);
 			}
 		}
+		function insertar () {
+			var intro = prompt('Introduce el nombre de el ID donde desea insertar'); 
+			var elem = document.getElementById(intro);
+			var ps = elem.querySelectorAll("p");
+
+			var intro = prompt("Este nodo tiene "+ps.length+" nodos donde lo desea posicionar");
+			var cambio = ps[intro-1];
+
+			var nuevoP = document.createElement("p");
+			var texto = document.createTextNode("Párrafo insertado");
+			nuevoP.appendChild(texto);
+			elem.insertBefore(nuevoP, cambio);
+		}
+		function eliminar () {
+			var intro = prompt('Introduce el nombre de el ID el cual desea eliminar'); 
+			var elem = document.getElementById(intro);
+			var ps = elem.querySelectorAll("p");
+			var intro = prompt("Este nodo tiene "+ps.length+" nodos cual desea eliminar");
+			var elimina = ps[intro-1];
+			elem.removeChild(elimina);
+		}
 	</script>
 	<link rel="stylesheet" href="estilo.css"/>
 </head>
-<body>
+<body id="body">
 	<header id="header" class="">
 		<h1>Creando nodos</h1><br>
 		<button onclick="anade()">Generar nodos</button>
@@ -43,7 +64,7 @@
 		<button onclick="insertar()">Insertar nodos</button>
 		<button onclick="eliminar()">Eliminar nodos</button>
 	</header>
-	<section>
+	<section id="section">
 		<article id="uno">
 			<h1>Uno</h1>
 			<p>Nuevo párrafo</p>
@@ -56,7 +77,7 @@
 			<h1>Tres</h1>
 		</article><br><br><br>
 	</section>
-	<footer>
+	<footer id="footer">
 	<h2>By Óscar</h2>
 	</footer>
 
