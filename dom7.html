@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>DOM7-Obtener/asignar codigo HTML</title>
+	<script>
+	function que () {
+		var elemento1 = document.getElementById('uno');
+		alert("outerHTML: "+elemento1.outerHTML);
+		elemento1.outerHTML="<article id=uno><h1>Primer cambio majo</h1></article>";
+		var elemento1 = document.getElementById('uno');
+		elemento1.insertAdjacentHTML('afterend', "<p>Esto acaba de cambiar</p>");
+
+		var elemento2 = document.getElementById('dos').innerHTML;
+		alert("InnerHTML: "+elemento2);
+	}
+	</script>
+<link rel="stylesheet" href="estilo.css"/>
+</head>
+<body>
+	<header id="header" class="">
+		<h1>Obtener/asignar codigo HTML</h1><br>
+		<button onclick="que()">¿Que tenemos dentro?</button><br><br><br>
+	</header>
+	<section>
+		<article id="uno">
+			<h2>Uno</h2>
+		</article><br><br><br>
+		<article id="dos">
+			<h2>Dos</h2>
+		</article><br><br><br>
+	</section>
+</body>
+</html>
