@@ -1,0 +1,42 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		* {
+    		padding: 0;
+  		  	margin: 0;
+ 		  	border: 0; 
+		}
+		body{
+			width: 100%;
+			height: 100%;
+		}
+		#uno{
+			background-color: #D77260;
+			opacity: 0;
+		}
+		#dos{
+			background-color: #411FDE;
+		}
+		button{
+			padding: 1em;
+			text-align: center;
+			margin-left: 46%;
+			margin-top: 20%;
+		}
+	</style>
+	<script>
+	function color (coloreame) {
+		document.querySelector("body").setAttribute("id","dos");
+	}
+	</script>
+</head>
+<body id="uno">
+	<section>
+		<button onclick="color(this)">Rojo</button><br>
+	</section>
+</body>
+</html>
